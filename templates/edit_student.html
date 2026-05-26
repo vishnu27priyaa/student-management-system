@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Student | Student Management System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h2 class="h4 mb-3">Edit Student</h2>
+                <form method="post" novalidate>
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label for="student_id" class="form-label">Student ID</label>
+                            <input type="text" class="form-control" id="student_id" name="student_id" value="{{ student['student_id'] }}" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ student['name'] }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="age" class="form-label">Age</label>
+                            <input type="number" class="form-control" id="age" name="age" min="1" value="{{ student['age_text'] }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="course" class="form-label">Course</label>
+                            <input type="text" class="form-control" id="course" name="course" value="{{ student['course'] }}" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="marks" class="form-label">Marks</label>
+                            <input type="number" class="form-control" id="marks" name="marks" min="0" max="100" value="{{ student['marks_text'] }}" required>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Update Student</button>
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Import Students | Student Management System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h2 class="h4 mb-3">Import Students from CSV</h2>
+                <p class="text-muted">Upload a CSV file with headers: <code>student_id,name,age,course,marks</code>.</p>
+
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="csv_file" class="form-label">CSV File</label>
+                        <input type="file" class="form-control" id="csv_file" name="csv_file" accept=".csv" required>
+                        <div class="form-text">Each row should contain student ID, name, age, course, and marks.</div>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Import Students</button>
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">Back to list</a>
+                    </div>
+                </form>
+
+                <div class="mt-4">
+                    <h6 class="mb-2">CSV Example</h6>
+                    <pre class="bg-light p-3 rounded">student_id,name,age,course,marks
+S001,Jane Doe,18,Mathematics,92
+S002,John Smith,20,Physics,75</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
